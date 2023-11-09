@@ -67,22 +67,22 @@ if __name__ == "__main__":
         print(f'We have logged in as {client.user}')
         await asyncio.sleep(30)
         a_channel = client.get_channel(1172038353185669150)
-        a_messages = [message.content async for message in a_channel.history(limit=last_messages)]
+        a_messages = [message async for message in a_channel.history(limit=last_messages)]
 
         a_messages.reverse()
-        fa = open("menu/announcement.txt", "w")
+        fa = open("menu/announcement.txt", "w", encoding="utf-8")
         for items in a_messages:
-            fa.write("%s\n" % textwrap.fill(items,64))
+            fa.write("%s\n" % textwrap.fill(items.content,64))
         fa.close()
         
         c_channel = client.get_channel(1172034193132355635)
-        c_messages = [message.content async for message in c_channel.history(limit=last_messages)]
+        c_messages = [message async for message in c_channel.fetch(limit=last_messages)]
 
         c_messages.reverse()
         c_string = ''.join(map(str,c_messages))
         c_string = markdown(c_string)
         c_messages = c_string.splitlines()
-        fc = open("menu/change_logs.txt", "w")
+        fc = open("menu/change_logs.txt", "w", encoding="utf-8")
         for items in c_messages:
             for item in textwrap.wrap(items,64):
                 fc.write("%s\n" % item)
@@ -96,10 +96,10 @@ if __name__ == "__main__":
 
         if str(message.channel) in channels:
             if message.content == "!history":
-                messages = [message async for message in message.channel.fetch(limit=last_messages)]
+                messages = [message async for message in message.channel.history(limit=last_messages)]
 
                 await message.channel.send(f"Last {last_messages} messages:")
                 for message in messages:
-                    await message.channel.send(message.content)
+                    await message.channel.send(message)
 
     client.run(token)

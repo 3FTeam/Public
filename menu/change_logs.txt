@@ -1,0 +1,6 @@
+<Message id=1172056510017306674 channel=<TextChannel
+id=1172034193132355635 name='change_logs-txt' position=7
+nsfw=False news=False category_id=1099080263541211156>
+type=<MessageType.default: 0> author=<User id=857323831500996618
+name='donkyshon' global_name='D8NKYSH8N' bot=False>
+flags=<MessageFlags value=0>>
