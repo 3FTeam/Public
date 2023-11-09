@@ -79,7 +79,8 @@ async def on_ready():
     fc = open("menu/change_logs.txt", "w", encoding="utf-8")
     for items in c_messages:
         for item in textwrap.wrap(items,64):
-            fc.write("%s\n" % item)
+            fc.write("%s" % item)
+            fc.write("\n")
     fc.close()
 
     await client.close()
