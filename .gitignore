@@ -1,2 +1,10 @@
-main2.py
+# env
 .env
+venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
