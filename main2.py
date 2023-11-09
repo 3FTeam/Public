@@ -5,7 +5,7 @@ import os
 import textwrap
 
 try:
-    DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
+    DISCORD_TOKEN = os.environ[""]
 except KeyError:
     DISCORD_TOKEN = "Token not available!"
     #logger.info("Token not available!")
@@ -75,7 +75,7 @@ if __name__ == "__main__":
         a_messages = [message.content async for message in a_channel.history(limit=last_messages)]
 
         a_messages.reverse()
-        fa = open("menu/announcement.txt", "w")
+        fa = open("../menu/announcement.txt", "w")
         for items in a_messages:
                 fa.write("%s\n" % textwrap.fill(items,64))
         fa.close()
@@ -87,7 +87,7 @@ if __name__ == "__main__":
         c_string = ''.join(map(str,c_messages))
         c_string = markdown(c_string)
         c_messages = c_string.splitlines()
-        fc = open("menu/change_logs.txt", "w")
+        fc = open("../menu/change_logs.txt", "w")
         for items in c_messages:
                 for item in textwrap.wrap(items,64):
                     fc.write("%s\n" % item)
