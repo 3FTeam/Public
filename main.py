@@ -23,61 +23,56 @@ if __name__ == "__main__":
 
     def markdown(string):
         t_string = string.replace('- ','• ')
-
         string_list = t_string.split("**")
         temp_string = ""
         for i in range(len(string_list)):
-                if i == 0:
-                        temp_string += string_list[i]
-                elif i%2 != 0:
-                        temp_string += ("&b"+string_list[i]+"&r")
-                else :
-                        temp_string += string_list[i]
+            if i == 0:
+                temp_string += string_list[i]
+            elif i%2 != 0:
+                temp_string += ("&b"+string_list[i]+"&r")
+            else :
+                temp_string += string_list[i]
         t_string = temp_string
 
         string_list = t_string.split("*")
         temp_string = ""
         for i in range(len(string_list)):
-                if i == 0:
-                        temp_string += string_list[i]
-                elif i%2 != 0:
-                        temp_string += ("&o"+string_list[i]+"&r")
-                else :
-                        temp_string += string_list[i]
+            if i == 0:
+                temp_string += string_list[i]
+            elif i%2 != 0:
+                temp_string += ("&o"+string_list[i]+"&r")
+            else :
+                temp_string += string_list[i]
         t_string = temp_string
 
         string_list = t_string.split("__")
         temp_string = ""
         for i in range(len(string_list)):
-                if i == 0:
-                        temp_string += string_list[i]
-                elif i%2 != 0:
-                        temp_string += ("&n"+string_list[i]+"&r")
-                else :
-                        temp_string += string_list[i]
+            if i == 0:
+                temp_string += string_list[i]
+            elif i%2 != 0:
+                temp_string += ("&n"+string_list[i]+"&r")
+            else :
+                temp_string += string_list[i]
         t_string = temp_string
 
         print(t_string)
         return t_string
 
+    async def quit():
+        await client.close()
+
     @client.event
     async def on_ready():
         print(f'We have logged in as {client.user}')
-    
-    @client.event
-    async def on_ready():
         await asyncio.sleep(30)
-        await quit()
-        
-    @client.event
-    async def on_ready():
         a_channel = client.get_channel(1172038353185669150)
         a_messages = [message.content async for message in a_channel.history(limit=last_messages)]
 
         a_messages.reverse()
         fa = open("menu/announcement.txt", "w")
         for items in a_messages:
-                fa.write("%s\n" % textwrap.fill(items,64))
+            fa.write("%s\n" % textwrap.fill(items,64))
         fa.close()
         
         c_channel = client.get_channel(1172034193132355635)
@@ -89,21 +84,22 @@ if __name__ == "__main__":
         c_messages = c_string.splitlines()
         fc = open("menu/change_logs.txt", "w")
         for items in c_messages:
-                for item in textwrap.wrap(items,64):
-                    fc.write("%s\n" % item)
+            for item in textwrap.wrap(items,64):
+                fc.write("%s\n" % item)
         fc.close()
         
         await quit()
-    
+
     @client.event
     async def on_message(message):
         channels = ["general"]
 
         if str(message.channel) in channels:
             if message.content == "!history":
-                messages = [message.content async for message in message.channel.history(limit=last_messages)]
+                messages = [message async for message in message.channel.fetch(limit=last_messages)]
 
                 await message.channel.send(f"Last {last_messages} messages:")
-                await message.channel.send(messages)
+                for message in messages:
+                    await message.channel.send(message.content)
 
     client.run(token)
