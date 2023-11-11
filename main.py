@@ -7,7 +7,7 @@ import textwrap
 try:
     DISCORD_TOKEN = os.environ["DISCORD_TOKEN"]
 except KeyError:
-    DISCORD_TOKEN = "Token not available!"
+    DISCORD_TOKEN = "Discord-Token incorrect."
 
 token = DISCORD_TOKEN
 
@@ -59,37 +59,39 @@ def markdown(string):
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
-    await asyncio.sleep(30)
+    await asyncio.sleep(5)
+#announcement txt
     a_channel = client.get_channel(1172038353185669150)
     a_messages = [message.content async for message in a_channel.history(limit=last_messages)]
-
     a_messages.reverse()
     fa = open("menu/announcement.txt", "w", encoding="utf-8")
     for items in a_messages:
         fa.write("%s\n" % textwrap.fill(items,80))
     fa.close()
-
+#change-log txt
     c_channel = client.get_channel(1172034193132355635)
     c_messages = [message.content async for message in c_channel.history(limit=last_messages)]
-
-    c_messages.reverse()
-    c_string = ''.join(map(str,c_messages))
-    c_string = markdown(c_string)
-    c_messages = c_string.splitlines()
+    c_messages.reverse() 
     fc = open("menu/change_logs.txt", "w", encoding="utf-8")
     for items in c_messages:
-        for item in textwrap.wrap(items,80):
-            fc.write("%s" % item)
-            fc.write("\n")
+        fc.write("%s\n" % textwrap.fill(items,80))
     fc.close()
+#title txt
+    t_channel = client.get_channel(1172640409730682952)
+    t_messages = [message.content async for message in t_channel.history(limit=last_messages)]
+    t_messages.reverse() 
+    ft = open("menu/title.txt", "w", encoding="utf-8")
+    for items in t_messages:
+        ft.write("%s\n" % textwrap.fill(items,40))
+    ft.close()
 
     await client.close()
 
     @client.event
     async def on_message(message):
-        channels = ["general"]
+        channels = ["ruler"]
         if str(message.channel) in channels:
-            if message.content == "!history":
+            if message.content == "!h":
                 messages = [message.content async for message in message.channel.history(limit=last_messages)]
                 await message.channel.send(f"Last {last_messages} messages:")
                 await message.channel.send(messages)
