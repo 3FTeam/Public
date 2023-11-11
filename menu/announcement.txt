@@ -1,43 +1,23 @@
-аноунс2
-There is no strict process when it comes to merging pull requests. Pull requests
-will sometimes take a while before they are looked at by a maintainer; the
-bigger the change, the more time it will take before they are accepted into the
-code. Every team member is a volunteer who is giving up their own time to help
-maintain and contribute, so please be courteous and respectful. Here are some
-helpful ways to make it easier for you and for the maintainers when making a
-pull request.  Make sure your pull request complies to the requirements outlined
-here  You are expected to have tested your pull requests if it is anything that
-would warrant testing. Text only changes, single number balance changes, and
-similar generally don't need testing, but anything else does. This means by
-extension web edits are disallowed for larger changes.  You are going to be
-expected to document all your changes in the pull request. Failing to do so will
-mean delaying it as we will have to question why you made the change. On the
-other hand, you can speed up the process by making the pull request readable and
-easy to understand, with diagrams or before/after data. Should you be optimizing
-a routine you must provide proof by way of profiling that your changes are
-faster.  We ask that you use the changelog system to document your player facing
-changes, which prevents our players from being caught unaware by said changes -
-you can find more information about this on this wiki page.
-If you are proposing multiple changes, which change many different aspects of
-the code, you are expected to section them off into different pull requests in
-order to make it easier to review them and to deny/accept the changes that are
-deemed acceptable.  If your pull request is accepted, the code you add no longer
-belongs exclusively to you but to everyone; everyone is free to work on it, but
-you are also free to support or object to any changes being made, which will
-likely hold more weight, as you're the one who added the feature. It is a shame
-this has to be explicitly said, but there have been cases where this would've
-saved some trouble.  If your pull request is not finished, you may open it as a
-draft for potential review. If you open it as a full-fledged PR make sure it is
-at least testable in a live environment. Pull requests that do not at least meet
-this requirement will be closed. You may request a maintainer reopen the pull
-request when you're ready, or make a new one.  While we have no issue helping
-contributors (and especially new contributors) bring reasonably sized
-contributions up to standards via the pull request review process, larger
-contributions are expected to pass a higher bar of completeness and code quality
-before you open a pull request. Maintainers may close such pull requests that
-are deemed to be substantially flawed. You should take some time to discuss with
-maintainers or other contributors on how to improve the changes.  After leaving
-reviews on an open pull request, maintainers may convert it to a draft. Once you
-have addressed all their comments to the best of your ability, feel free to mark
-the pull as Ready for Review again.
-**фывфывфыв*** `фывфывыфв`фы *вфывячсячс*
+***НОВИЧКАМ***   • На сервер не пускают никогда не заходившие на него аккаунты.
+• Попасть на сервер новичку можно лишь через приглашение от знакомого с уровнем
+доступа "Товарищ".   • Не стоит выпрашивать приглашения у случайных людей,
+приглашаются только друзья. Тем более не ведитесь на предложения впустить вас за
+деньги.   • Пригласивший друг за вас в ответе, и на него возлагается ваше
+обучение игре.   • Доверять и слушать стоит людей со следующими ролями в этом
+дискорд сервере: Secret Overlord, Pusher, Practicus, Commissar, Envoy. Остальные
+- обычные пользователи, даже если у них есть особые роли или цвета, которые не
+находятся в списке выше. Верить им или нет - решение ваше.   • Доступ к основным
+каналам в дискорде выдаётся **исключительно** по факту доступа в игру. Не
+просите ни у кого доступ к остальным каналам, если у вас нет возможности
+зарегестрироваться через бота. Для регистрации стоит написать
+<@487937828907384833> с сообщением !register если у вас уже есть доступ к игре и
+вам хочется получить доступ к остальным каналам на сервере. Для получения
+доступа к Русскоязычным каналам после регистрации стоит написать мне.  •Для
+захода в игру при наличии доступа, нужно нажать на чёрного паука на вики, или
+зайти по айпи на который он ведет.   •Во время выходных разбираются только:
+Вопросы связанные с наградами за пожертвования; Проколы и пропуски с нашей
+стороны(не вернулся потерянный по ошибке доступ, и.т.д); Критические баги и
+важные проблемы с сервером. Просьбы разбанов, не критически важные вопросы и
+подобное стоит оставить до начала рабочей недели, подобное быстро теряется и
+забывается в загруженные выходные. Сообщения делайте как можно более короткими и
+информативными, указывайте свой сикей если дело касается игры.
