@@ -66,7 +66,7 @@ async def on_ready():
     a_messages.reverse()
     fa = open("menu/announcement.txt", "w", encoding="utf-8")
     for items in a_messages:
-        fa.write("%s\n" % textwrap.fill(items,80))
+        fa.write("%s\n" % textwrap.fill(items,70))
     fa.close()
 #change-log txt
     c_channel = client.get_channel(1172034193132355635)
@@ -74,7 +74,7 @@ async def on_ready():
     c_messages.reverse() 
     fc = open("menu/change_logs.txt", "w", encoding="utf-8")
     for items in c_messages:
-        fc.write("%s\n" % textwrap.fill(items,80))
+        fc.write("%s\n" % textwrap.fill(items,45))
     fc.close()
 #title txt
     t_channel = client.get_channel(1172640409730682952)
@@ -82,7 +82,7 @@ async def on_ready():
     t_messages.reverse() 
     ft = open("menu/title.txt", "w", encoding="utf-8")
     for items in t_messages:
-        ft.write("%s\n" % textwrap.fill(items,40))
+        ft.write("%s\n" % textwrap.fill(items,55))
     ft.close()
 
     await client.close()
